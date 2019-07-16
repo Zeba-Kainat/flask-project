@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Profile</title>
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<h1>Website Title</h1>
+                <a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
+				<a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
+                <a href="{{ url_for('editprofile') }}"><i class="fas fa-user-circle"></i>Edit Profile</a>
+				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		</nav>
+		<div class="content">
+			<h2>Profile Page</h2>
+            <div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>{{ account['username'] }}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{ account['password'] }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ account['email'] }}</td>
+        </tr>
+        <tr>
+            <td>FirstName:</td>
+            <td>{{ account['firstname'] }}</td>
+        </tr>
+        <tr>
+            <td>LastName:</td>
+            <td>{{ account['lastname'] }}</td>
+        </tr>
+        <tr>
+            <td>Profile Picture:</td>
+            <td><img src=" {{url_for('send_image', filename=account['image'])}}" alt="pic" width="150" height="150"/></td>
+        </tr>
+    </table>
+</div>
+
+		</div>
+	</body>
+</html>
